@@ -1,6 +1,18 @@
 import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { Button, TextField } from "@material-ui/core";
+import "./form.css";
 
 export default function Form({ todoDispatch }) {
+
+    const styles = makeStyles({
+        input: {
+            display: "block",
+            width: "100%",
+            marginBottom: "10px"
+        }
+    })();
+
     //  form input state
     const [todoInput, setTodoInput] = useState("");
 
@@ -11,25 +23,37 @@ export default function Form({ todoDispatch }) {
     const handleSubmit = e => {
         e.preventDefault();
 
-        //  Dispatch a new todo
-        todoDispatch({
-            type: "ADD_TODO",
-            payload: todoInput
-        });
-        
-        setTodoInput("");
-    }
+        if (todoInput.length > 0) {
+            //  Dispatch a new todo
+            todoDispatch({
+                type: "ADD_TODO",
+                payload: todoInput
+            });
+
+            setTodoInput("");
+        }
+    };
 
     return (
         <div className="form">
             <form onSubmit={handleSubmit}>
-                <input
+                <TextField
+                    fullWidth 
+                    className={styles.input}
                     type="text"
+                    variant="outlined"
+                    label="Add Todo.."
                     value={todoInput}
                     onChange={handleChanges}
-                    placeholder="add todo.."
                 />
-                <input type="submit" />
+                <Button
+                    className={styles.input}
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                >
+                    Submit
+                </Button>
             </form>
         </div>
     );
