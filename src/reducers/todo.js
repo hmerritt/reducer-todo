@@ -1,11 +1,18 @@
+import { random } from "../utils";
+
 export const initialTodoState = [
     {
-        id: Date.now(),
+        id: Date.now() - random(10000, 9999999999),
         item: "Some thing todo",
         completed: false
     },
     {
-        id: Date.now() + 1,
+        id: Date.now() - random(10000, 9999999999),
+        item: "Completed todo",
+        completed: true
+    },
+    {
+        id: Date.now() - random(10000, 9999999999),
         item: "Another thing todo",
         completed: false
     }

@@ -22,7 +22,7 @@ const Todo = ({ item, todoDispatch }) => {
                     <Typography color="textSecondary">
                         <small>
                             {
-                                moment(item.id).calendar() //  .fromNow()
+                                moment(item.id).fromNow() //  .fromNow()  .calendar()
                             }
                         </small>
                     </Typography>
