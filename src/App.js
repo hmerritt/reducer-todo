@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import Header from "./components/header/header";
-import { Container } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
+import { todo } from "./reducers/todo";
 import "./App.css";
 
 function App() {
@@ -9,7 +10,9 @@ function App() {
             <Header />
 
             <div className="content">
-                <Container>lol</Container>
+                <Container>
+                    <Typography variant="h2">Welcome!</Typography>
+                </Container>
             </div>
         </div>
     );
