@@ -8,7 +8,7 @@ function Welcome({ todos }) {
             {
                 todos.length === 0
                 ? "Welcome!"
-                : `Welcome, ${todos.length} things todo`
+                : `Welcome; ${todos.length} things todo`
             }
         </Typography>
     );
