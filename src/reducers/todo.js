@@ -13,6 +13,7 @@ export const initialTodoState = [
 
 export const todoReducer = (state, action) => {
     switch (action.type) {
+
         case "ADD_TODO":
             return [...state, {
                 id: Date.now(),
@@ -28,9 +29,13 @@ export const todoReducer = (state, action) => {
                         completed: !task.completed
                     };
                 }
-
                 return task;
             });
+
+        case "DELETE_COMPLETED":
+            return state.filter((task) => {
+                return task.completed ? false : true
+            })
 
         default:
             return state;

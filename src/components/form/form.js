@@ -20,7 +20,7 @@ export default function Form({ todoDispatch }) {
         setTodoInput(e.target.value);
     };
 
-    const handleSubmit = e => {
+    const addTodo = e => {
         e.preventDefault();
 
         if (todoInput.length > 0) {
@@ -34,25 +34,44 @@ export default function Form({ todoDispatch }) {
         }
     };
 
+    const removeCompleted = e => {
+        e.preventDefault();
+
+        //  Dispatch clear all completed
+        todoDispatch({
+            type: "DELETE_COMPLETED"
+        });
+    }
+
     return (
         <div className="form">
-            <form onSubmit={handleSubmit}>
+            <form>
                 <TextField
-                    fullWidth 
+                    fullWidth
                     className={styles.input}
                     type="text"
                     variant="outlined"
-                    label="Add Todo.."
+                    label="New Todo.."
                     value={todoInput}
                     onChange={handleChanges}
                 />
                 <Button
+                    onClick={addTodo}
                     className={styles.input}
                     type="submit"
                     variant="contained"
                     color="primary"
                 >
-                    Submit
+                    Add Todo
+                </Button>
+                <Button
+                    onClick={removeCompleted}
+                    className={styles.input}
+                    type="submit"
+                    variant="contained"
+                    color="secondary"
+                >
+                    Clear Completed Todos
                 </Button>
             </form>
         </div>
