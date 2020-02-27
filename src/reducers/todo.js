@@ -1,6 +1,6 @@
 import React from "react";
 
-export const initialState = [
+export const initialTodoState = [
     {
         id: Date.now(),
         item: "Some thing todo",
@@ -15,6 +15,11 @@ export const initialState = [
 
 export const todoReducer = (state, action) => {
     switch (action.type) {
+
+        case "ADD_TODO":
+            //return 
+            break;
+
         default:
             return state;
     }

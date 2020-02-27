@@ -1,17 +1,25 @@
 import React, { useState, useEffect, useReducer } from "react";
-import Header from "./components/header/header";
 import { Container, Typography } from "@material-ui/core";
-import { todo } from "./reducers/todo";
+import { todoReducer, initialTodoState } from "./reducers/todo";
+import Header from "./components/header/header";
+import Welcome from "./components/welcome/welcome";
+import ListTodos from "./components/listTodos";
+import Todo from "./components/todo/todo";
 import "./App.css";
 
 function App() {
+
+    //  Set up reducer
+    const [todos, todoDispatch] = useReducer(todoReducer, initialTodoState);
+
     return (
         <div>
             <Header />
 
             <div className="content">
                 <Container>
-                    <Typography variant="h2">Welcome!</Typography>
+                    <Welcome todos={todos} />
+                    <ListTodos todos={todos} />
                 </Container>
             </div>
         </div>
