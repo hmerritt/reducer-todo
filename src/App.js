@@ -21,7 +21,7 @@ function App() {
                     <Welcome todos={todos} />
 
                     <Form todoDispatch={todoDispatch} />
-                    <ListTodos todos={todos} />
+                    <ListTodos todos={todos} todoDispatch={todoDispatch} />
                 </Container>
             </div>
         </div>

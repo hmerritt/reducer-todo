@@ -19,7 +19,18 @@ export const todoReducer = (state, action) => {
                 item: action.payload,
                 completed: false
             }];
-            break;
+
+        case "TOGGLE_COMPLETED":
+            return state.map((task, key) => {
+                if (action.payload === task.id) {
+                    return {
+                        ...task,
+                        completed: !task.completed
+                    };
+                }
+
+                return task;
+            });
 
         default:
             return state;
