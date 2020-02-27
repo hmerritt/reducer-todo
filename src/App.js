@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useReducer } from "react";
-import { Container, Typography } from "@material-ui/core";
+import React, { useReducer } from "react";
+import { Container } from "@material-ui/core";
 import { todoReducer, initialTodoState } from "./reducers/todo";
 import Header from "./components/header/header";
 import Welcome from "./components/welcome/welcome";
+import Form from "./components/form/form";
 import ListTodos from "./components/listTodos";
-import Todo from "./components/todo/todo";
 import "./App.css";
 
 function App() {
@@ -19,6 +19,8 @@ function App() {
             <div className="content">
                 <Container>
                     <Welcome todos={todos} />
+
+                    <Form todoDispatch={todoDispatch} />
                     <ListTodos todos={todos} />
                 </Container>
             </div>

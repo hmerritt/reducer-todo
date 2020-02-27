@@ -1,5 +1,3 @@
-import React from "react";
-
 export const initialTodoState = [
     {
         id: Date.now(),
